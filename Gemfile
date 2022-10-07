@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -30,18 +32,16 @@ gem 'dotenv-rails', '~> 2.7.6'
 
 gem 'phonelib', '~> 0.7.0'
 
-gem 'pundit', '~> 2.2.0'
-
 gem 'jsonapi-resources', '~> 0.10'
 
 group :development, :test do
+  gem 'database_cleaner-active_record', '~> 2.0.1'
   gem 'factory_bot_rails', '~> 6.2.0'
   gem 'faker', '~> 2.21.0'
   gem 'pry', '~> 0.14.1'
   gem 'rspec-rails', '~> 5.1.2'
   gem 'rubocop', require: false
   gem 'simplecov', '~> 0.21.2', require: false
-  gem 'database_cleaner-active_record', '~> 2.0.1'
 end
 
 group :test do
