@@ -6,6 +6,6 @@ FactoryBot.define do
     description { 'MyText' }
     published_at { '2022-10-07 16:35:16' }
     published { false }
-    user { '' }
+    author factory: :user
   end
 end

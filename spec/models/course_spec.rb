@@ -3,5 +3,17 @@
 require 'rails_helper'
 
 RSpec.describe Course, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'validations' do
+    subject { build(:course) }
+
+    it { should validate_presence_of(:title) }
+  end
+
+  describe 'associations' do
+    subject { build(:course) }
+
+    it { is_expected.to have_many(:talents) }
+    it { should belong_to(:author).class_name('User') }
+    it { is_expected.to have_many(:user_courses) }
+  end
 end

@@ -2,11 +2,11 @@
 
 FactoryBot.define do
   factory :user do
-    name { 'MyString' }
-    dob { '2022-10-07' }
-    mobile_no { 'MyString' }
-    email { 'MyString' }
-    university { 'MyString' }
-    organization { 'MyString' }
+    name { Faker::Name.name }
+    dob { Faker::Date.birthday(min_age: 18, max_age: 65) }
+    mobile_no { Faker::PhoneNumber.cell_phone }
+    email { Faker::Internet.email }
+    university { Faker::Educator.university }
+    organization { Faker::Company.name }
   end
 end

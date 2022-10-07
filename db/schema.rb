@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20_221_007_111_001) do
     t.text 'description'
     t.datetime 'published_at'
     t.boolean 'published'
-    t.bigint 'user_id'
+    t.uuid 'user_id', null: false
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
     t.index ['user_id'], name: 'index_courses_on_user_id'
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20_221_007_111_001) do
     t.datetime 'updated_at', precision: 6, null: false
   end
 
+  add_foreign_key 'courses', 'users'
   add_foreign_key 'user_courses', 'courses'
   add_foreign_key 'user_courses', 'users'
 end
