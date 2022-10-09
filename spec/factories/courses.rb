@@ -2,9 +2,9 @@
 
 FactoryBot.define do
   factory :course do
-    title { 'MyString' }
-    description { 'MyText' }
-    published_at { '2022-10-07 16:35:16' }
+    title { Faker::Company.name }
+    description { Faker::Quote.matz }
+    published_at { Date.today }
     published { false }
     author factory: :user
   end

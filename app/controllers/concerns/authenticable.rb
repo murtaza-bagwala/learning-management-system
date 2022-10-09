@@ -5,6 +5,8 @@ module Authenticable
 
   def authenticate_user!
     @current_user = User.find(user_id)
+  rescue ActiveRecord::RecordNotFound
+    raise NotAuthorizedError
   end
 
   def current_user

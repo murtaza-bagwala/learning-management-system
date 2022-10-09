@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :user_course do
-    user { nil }
-    course { nil }
+    talent factory: :user
+    course
   end
 end

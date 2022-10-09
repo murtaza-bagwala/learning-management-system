@@ -5,11 +5,12 @@ class User < ApplicationRecord
   has_many :user_courses
   has_many :learnt_courses, through: :user_courses, source: :course
 
-  validates :mobile_no, uniqueness: true, presence: true
-  validates :name, format: { with: /\A[^0-9`!@#$%\^&*+_=]+\z/ }, presence: true
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, presence: true
+  validates :mobile_no, uniqueness: true, presence: true, numericality: true,
+                        length: { minimum: 10, maximum: 15 }, case_sensitive: false
+  validates :name, uniqueness: true, format: { with: /\A[^0-9`!@#$%\^&*+_=]+\z/ }, presence: true
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: true, presence: true
 
   def author?
-    courses.present?
+    authored_courses.present?
   end
 end

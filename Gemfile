@@ -30,7 +30,7 @@ gem 'pg', '~> 1.4.0'
 
 gem 'dotenv-rails', '~> 2.7.6'
 
-gem 'phonelib', '~> 0.7.0'
+gem 'activestorage-validator', '~> 0.1.5'
 
 gem 'jsonapi-resources', '~> 0.10'
 
