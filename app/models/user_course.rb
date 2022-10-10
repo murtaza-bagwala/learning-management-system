@@ -4,7 +4,7 @@ class UserCourse < ApplicationRecord
   belongs_to :talent, class_name: 'User', foreign_key: 'user_id'
   belongs_to :course
 
-  before_commit :course_not_created_by_user!
+  before_save :course_not_created_by_user!
 
   private
 

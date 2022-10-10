@@ -2,7 +2,7 @@
 
 class User < ApplicationRecord
   has_many :authored_courses, class_name: 'Course', foreign_key: 'user_id'
-  has_many :user_courses
+  has_many :user_courses, dependent: :destroy
   has_many :learnt_courses, through: :user_courses, source: :course
 
   validates :mobile_no, uniqueness: true, presence: true, numericality: true,
@@ -22,6 +22,7 @@ class User < ApplicationRecord
     if author?
       new_author = User.joins(:authored_courses).where("users.id != '#{id}'").first
       if new_author
+        UserCourse.where(user_id: new_author.id, course_id: authored_courses.pluck(:id)).destroy_all
         authored_courses.each do |course|
           course.update!(user_id: new_author.id)
         end
