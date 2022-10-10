@@ -10,5 +10,5 @@ JSONAPI.configure do |config|
   config.default_page_size = 10
   config.maximum_page_size = 20
 
-  config.exception_class_whitelist = [StandardError]
+  config.exception_class_allowlist = [StandardError]
 end

@@ -5,8 +5,12 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
-      jsonapi_resources :users
+      jsonapi_resources :users do
+        get :learnt_courses
+        get :authored_courses
+      end
       jsonapi_resources :courses do
+        post :join_course
         jsonapi_resources :lessons
       end
     end

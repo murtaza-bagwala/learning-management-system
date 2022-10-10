@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/cerebris/jsonapi-resources
+  revision: bf4b4cd7d79da453372880068e167066f0d05f47
+  specs:
+    jsonapi-resources (0.11.0.beta1)
+      activerecord (>= 5.1)
+      concurrent-ruby
+      railties (>= 5.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -102,10 +111,6 @@ GEM
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     json (2.6.2)
-    jsonapi-resources (0.10.7)
-      activerecord (>= 4.1)
-      concurrent-ruby
-      railties (>= 4.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -260,7 +265,7 @@ DEPENDENCIES
   dotenv-rails (~> 2.7.6)
   factory_bot_rails (~> 6.2.0)
   faker (~> 2.21.0)
-  jsonapi-resources (~> 0.10)
+  jsonapi-resources (~> 0.10)!
   listen (>= 3.0.5, < 3.2)
   pg (~> 1.4.0)
   pry (~> 0.14.1)

@@ -16,6 +16,36 @@ RSpec.describe 'Api::V1::Users', type: :request do
       end
     end
 
+    context 'with valid parameters' do
+      it 'it delates an author and transfers his/her courses to another author' do
+        course1 = create(:course)
+        course2 = create(:course)
+        user1 = course1.author
+        user2 = course2.author
+
+        delete api_v1_user_path(user1), headers: {
+          user: user1.id
+        }
+        expect(response.status).to eq 204
+        expect(user2.authored_courses.size).to eq 2
+        expect(user2.authored_courses.find(course1.id)).not_to be nil
+      end
+    end
+
+    context 'with valid parameters and no new author found' do
+      it 'it return a forbidden error' do
+        course = create(:course)
+
+        delete api_v1_user_path(course.author), headers: {
+          user: course.author.id
+        }
+
+        expect(json_response['errors']).to be_a_kind_of(Array)
+        expect(json_response['errors'][0]).to eq 'forbidden to perform this action'
+        expect(response.status).to eq 403
+      end
+    end
+
     context 'unauthorized user' do
       it 'it returns an unauthorized error' do
         user = create(:user)

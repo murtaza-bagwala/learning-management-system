@@ -32,7 +32,7 @@ gem 'dotenv-rails', '~> 2.7.6'
 
 gem 'activestorage-validator', '~> 0.1.5'
 
-gem 'jsonapi-resources', '~> 0.10'
+gem 'jsonapi-resources', '~> 0.10', git: 'https://github.com/cerebris/jsonapi-resources'
 
 group :development, :test do
   gem 'database_cleaner-active_record', '~> 2.0.1'

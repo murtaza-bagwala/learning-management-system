@@ -10,7 +10,25 @@ class User < ApplicationRecord
   validates :name, uniqueness: true, format: { with: /\A[^0-9`!@#$%\^&*+_=]+\z/ }, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: true, presence: true
 
+  before_destroy :transfer_courses_to_other_authors
+
   def author?
     authored_courses.present?
+  end
+
+  private
+
+  def transfer_courses_to_other_authors
+    if author?
+      new_author = User.joins(:authored_courses).where("users.id != '#{id}'").first
+      if new_author
+        authored_courses.each do |course|
+          course.update!(user_id: new_author.id)
+        end
+      else
+        Rails.logger.info('Unable to transfer courses to new author as no author found')
+        raise ForbiddenPathError
+      end
+    end
   end
 end

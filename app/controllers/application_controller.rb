@@ -31,7 +31,7 @@ class ApplicationController < ActionController::API
     render json: { errors: ['unauthorized to access the record'] }, status: 401
   end
 
-  def forbidden
+  def forbidden(_exception)
     render json: { errors: ['forbidden to perform this action'] }, status: 403
   end
 end
