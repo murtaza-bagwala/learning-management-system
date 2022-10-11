@@ -72,7 +72,11 @@ Now once CI passes successfully and code gets merged to `main` branch I have cre
 
 Now if scale out in future then this is how our deployment architecture would look like:- 
 
-![alt]()
+![alt](future-infrastructure.png)
+
+- Terraform scripts to set the up the infrastructure.
+- Once the code is merged Circle CI would build and pushes the image the ECR
+- Trigger the EKS to pull the images from ECR and create the .containers
 
 
 
