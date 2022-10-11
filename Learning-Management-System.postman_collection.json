@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "bfcc1c83-b2c7-4a1c-aba9-3650823a30db",
-		"name": "Elearnio-Rails-Challenge",
+		"name": "Learning-Management-System",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -592,12 +592,10 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3001/api/v1/courses/{{course_id}}/lessons/{{lesson_id}}",
-							"protocol": "http",
+							"raw": "{{base_url}}/api/v1/courses/{{course_id}}/lessons/{{lesson_id}}",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "3001",
 							"path": [
 								"api",
 								"v1",
@@ -1244,7 +1242,12 @@
 		},
 		{
 			"key": "base_url",
-			"value": "http://localhost:3001"
+			"value": "https://elearnio-rails-challenge.fly.dev"
+		},
+		{
+			"key": "variable_key",
+			"value": "",
+			"disabled": true
 		},
 		{
 			"key": "variable_key",
