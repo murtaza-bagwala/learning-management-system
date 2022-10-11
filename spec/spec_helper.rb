@@ -20,21 +20,6 @@ require 'database_cleaner-active_record'
 
 if ENV.fetch('COVERAGE', false)
   SimpleCov.start 'rails' do
-    # add_filter '/bin/'
-    # add_filter '/db/'
-    # add_filter '/spec/'
-    # add_filter 'app/views'
-    # add_filter 'app/channels'
-    # add_filter 'app/jobs'
-    # add_filter 'app/mailers'
-    # add_filter 'app/policies/application_policy.rb'
-    # # Bcrypt encryption file
-    # add_filter 'app/models/concerns/encrypted_field.rb'
-    # # Remove this filter after adding OmniAuth
-    # add_filter 'app/controllers/users/omniauth_callbacks_controller.rb'
-    # add_filter 'lib'
-    # # Testing serializers responses in requests spec for users and company.
-    # add_filter 'app/serializers'
   end
 end
 

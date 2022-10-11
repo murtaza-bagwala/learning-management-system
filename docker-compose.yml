@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  database:
+    image: postgres:13.8
+    restart: always
+    ports:
+      - "5435:5432"
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgres
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.local
+    command: bundle exec rails s -p 3001 -b 0.0.0.0
+    ports:
+      - "3001:3001"
+    volumes:
+      - .:/app
+    depends_on:
+      - database
+
+volumes:
+  postgres:

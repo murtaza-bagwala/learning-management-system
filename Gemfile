@@ -3,16 +3,15 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.2'
+ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.0'
-# Use Puma as the app server
-gem 'puma', '~> 3.11'
+# Use the Puma web server [https://github.com/puma/puma]
+gem 'puma', '~> 5.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
-# Use Redis adapter to run Action Cable in production
-gem 'redis', '~> 5.0', '>= 5.0.5'
+
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
