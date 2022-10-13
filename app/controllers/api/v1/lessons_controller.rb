@@ -6,6 +6,11 @@ module Api
       before_action :verify_user!, only: %i[create update destroy]
       before_action :verify_course!, only: %i[update destroy]
 
+      # Had to override create and update actions here as the content-type of
+      # this request is multipart-form as we are uploading videos
+      # and jsonapi-resource only expect application/vnd.api+json
+      # but the response is jsonapi-resource compliant
+
       def create
         lesson = @course.lessons.create!(lesson_params)
         render json: { data: serialize_json_api(lesson, @course) }, status: :created

@@ -42,7 +42,7 @@ or if you are familier with docker then just run these commands
 
 ## Entity Relationship Diagram
 
-An ERD Diagram, which mentions entities of the systems and their relationships. User can be an Author or a Talent, User `has_many` Authored Courses, Courses `has_many` Lessons, User `has_many` Learnt Courses through UserCourses and Course `has_many` Talents through UserCourses.
+An ERD Diagram, which mentions entities of the systems and their relationships. **User** can be an **Author** or a **Talent**, **User** `has_many` **Authored Courses**, **Courses** `has_many` **Lessons**, **User** `has_many` **Learnt Courses** through **UserCourses** and **Course** `has_many` **Talents** through **UserCourses**.
 
 ![alt](erd.png)
 
