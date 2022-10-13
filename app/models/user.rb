@@ -22,10 +22,9 @@ class User < ApplicationRecord
     if author?
       new_author = User.joins(:authored_courses).where("users.id != '#{id}'").first
       if new_author
-        UserCourse.where(user_id: new_author.id, course_id: authored_courses.pluck(:id)).destroy_all
-        authored_courses.each do |course|
-          course.update!(user_id: new_author.id)
-        end
+        authored_course_ids = authored_courses.pluck(:id)
+        UserCourse.where(user_id: new_author.id, course_id: authored_course_ids).destroy_all
+        Course.where(id: authored_course_ids).update(user_id: new_author.id)
       else
         Rails.logger.info('Unable to transfer courses to new author as no author found')
         raise ForbiddenPathError
