@@ -36,7 +36,9 @@ This app uses :-
 
 or if you are familier with docker then just run these commands
 
-`docker-compose build` and `docker-compose up`
+- `docker compose build`
+- `docker compose up`
+- `docker compose run app rake db:setup`
 
 ***note: docker-compose uses Dockerfile.local and there is another Dockefile which is created for fly.io deployment***
 

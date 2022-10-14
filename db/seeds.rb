@@ -55,9 +55,9 @@ index = 0
       lesson = Lesson.create!(
         title: "#{course_titles[index]} #{lesson_time}",
         notes: Faker::Quote.matz,
-        video: Rack::Test::UploadedFile.new('public/1mb-file.mp4', 'video/mp4'),
         course_id: course.id
       )
+      lesson.video.attach(io: File.open('public/1mb-file.mp4'), filename: '1mb-file.mp4')
 
       puts("Lesson #{lesson.title} created for course #{course.title}")
     end
